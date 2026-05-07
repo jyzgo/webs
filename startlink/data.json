@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778166766470,
+  "lastModified": 1778167681512,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -29,7 +29,8 @@
       "alias": "打包机",
       "url": "https://qdjumpserver.topgamesinc.com/luna/?_=1770187993297",
       "createdAt": 1776233759024,
-      "updatedAt": 1778166761452
+      "updatedAt": 1778167676505,
+      "titleColor": "#665fce"
     },
     {
       "id": "19d8fc84130_739cd840",
