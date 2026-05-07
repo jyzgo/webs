@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167818894,
+  "lastModified": 1778167829506,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -301,13 +301,6 @@
       "id": "19d8fc84131_c4093d5a",
       "alias": "Superset",
       "url": "http://34.126.117.6:8088/superset/welcome/",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
-      "id": "19d8fc84131_90a8208c",
-      "alias": "Claude",
-      "url": "https://claude.ai/chats",
       "createdAt": 1776233759025,
       "updatedAt": 1776233759025
     },
