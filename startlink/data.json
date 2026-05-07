@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778168312413,
+  "lastModified": 1778168350968,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -35,28 +35,28 @@
       "titleColor": "#665fce"
     },
     {
-      "id": "mojmz7h8_ui2cyci3",
-      "alias": "Release打包bamboo",
-      "url": "http://bamboonew.ggdev.co/browse/RS-RRAC",
-      "createdAt": 1777441837724,
-      "updatedAt": 1778167872659,
-      "titleColor": "#8575ff",
-      "tintColor": "#47fcff"
-    },
-    {
       "id": "19d8fc84130_f7c1c35e",
       "alias": "RS包下载",
       "url": "https://rsalphadownload.changyoufun.com/android/",
       "createdAt": 1776233759024,
-      "updatedAt": 1778167729162,
-      "titleColor": "#8084ff"
+      "updatedAt": 1778168126365,
+      "titleColor": "#4dfff3"
+    },
+    {
+      "id": "mojmz7h8_ui2cyci3",
+      "alias": "Release打包bamboo",
+      "url": "http://bamboonew.ggdev.co/browse/RS-RRAC",
+      "createdAt": 1777441837724,
+      "updatedAt": 1778168167913,
+      "titleColor": "#9183fb",
+      "tintColor": "#47fcff"
     },
     {
       "id": "19d8fc84130_3f1d1bfc",
-      "alias": "Banboo打包",
+      "alias": "Alpha打包",
       "url": "http://bamboonew.ggdev.co/browse/RS-AAHYT",
       "createdAt": 1776233759024,
-      "updatedAt": 1778167736942,
+      "updatedAt": 1778168143601,
       "titleColor": "#9ecdff"
     },
     {
@@ -131,23 +131,9 @@
       "updatedAt": 1776233759025
     },
     {
-      "id": "19d8fc84131_67abce95",
-      "alias": "版本管理 - 抖音开放平台",
-      "url": "https://developer.open-douyin.com/game/tteb039dbe7437ab0e07/indexpage",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
       "id": "19d8fc84131_100de1e1",
       "alias": "SDK 调用微信 API | 微信小游戏Unity/团结快适配",
       "url": "https://wechat-miniprogram.github.io/minigame-unity-webgl-transform/Design/WX_SDK.html",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
-      "id": "19d8fc84131_c1dab08e",
-      "alias": "看板 - Level",
-      "url": "https://ss-web.aslk2018.com:8993/#/panel/panel/60_533",
       "createdAt": 1776233759025,
       "updatedAt": 1776233759025
     },
@@ -183,13 +169,6 @@
       "id": "19d8fc84131_1312d84a",
       "alias": "小程序",
       "url": "https://mp.weixin.qq.com/wxamp/wacodepage/getcodepage?token=1903378459&lang=zh_CN",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
-      "id": "19d8fc84131_c253b98a",
-      "alias": "连连看 | Trello",
-      "url": "https://trello.com/b/ACvu3Dvr/%E8%BF%9E%E8%BF%9E%E7%9C%8B",
       "createdAt": 1776233759025,
       "updatedAt": 1776233759025
     },
@@ -243,13 +222,6 @@
       "updatedAt": 1776233759025
     },
     {
-      "id": "19d8fc84131_8e4cd4de",
-      "alias": "ultiverse-io/game-widget-sdk at feat/project-bac",
-      "url": "https://github.com/ultiverse-io/game-widget-sdk/tree/feat/project-bac",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
       "id": "19d8fc84131_71dd6302",
       "alias": "The GraphiQL",
       "url": "https://api.studio.thegraph.com/proxy/67300/bac-test-v2/version/latest/graphql?query=%7BgenesisCharacters%28where%3A+%7B+owner%3A+%220xa15a6a164fd150b1b532492de0d78473ece17858%22+%7D%2C+first%3A+1000%29+%7BtokenId%2Coccupation%2Cowner%2Cx%2CstakedAt%2Chired%7D%7D",
@@ -288,13 +260,6 @@
       "id": "19d8fc84131_831735b0",
       "alias": "指标 – bac-s…logic-dev – Cloud Run – Bingo – Google Cloud Console",
       "url": "https://console.cloud.google.com/run/detail/asia-southeast1/bac-server-logic-dev/metrics?hl=zh-CN&project=bingo-393215",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
-      "id": "19d8fc84131_3d3dc3b0",
-      "alias": "Google Cloud console",
-      "url": "https://console.cloud.google.com/cloudscheduler?hl=zh-CN&project=bingo-393215",
       "createdAt": 1776233759025,
       "updatedAt": 1776233759025
     },
