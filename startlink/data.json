@@ -1,14 +1,15 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167741959,
+  "lastModified": 1778167755776,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
       "alias": "ucool版本",
       "url": "https://manage.ucool.com/index.php?r=gm%2Fversion-config-list&projectId=42&time_start=2026-05-01&time_end=2026-05-07&search_date_type=2",
       "createdAt": 1778146204194,
-      "updatedAt": 1778146204194
+      "updatedAt": 1778167750762,
+      "titleColor": "#75b8ff"
     },
     {
       "id": "moidvqya_2dblxbxq",
