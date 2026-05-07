@@ -10,9 +10,7 @@
     <header class="topbar">
       <div class="brand">
         <div class="brand__title">StartLink</div>
-        <div class="brand__subtitle">
-          <span id="lastUpdate">数据加载中…</span>
-        </div>
+        <div class="brand__subtitle"><span id="lastUpdate">数据加载中…</span></div>
       </div>
 
       <div class="controls">
@@ -24,18 +22,21 @@
           <span class="field__label">Cols</span>
           <input id="cols" class="input input--sm" type="number" min="1" max="12" step="1" />
         </label>
+        <button id="addBtn" class="btn btn--primary" type="button" hidden>＋ 添加</button>
+        <button id="settingsBtn" class="iconBtn" type="button" title="编辑模式 / GitHub 设置">⚙</button>
       </div>
     </header>
 
     <main class="main">
       <section class="statusCard">
         <div class="statusCard__left">
-          <div class="statusCard__title">只读视图</div>
-          <div class="statusCard__desc">数据由 ToolBox · startlink 工具维护,通过 git push 同步</div>
+          <div id="modeTitle" class="statusCard__title">只读视图</div>
+          <div id="modeDesc" class="statusCard__desc">点 ⚙ 输入 GitHub PAT 进入编辑模式</div>
         </div>
         <div class="statusCard__right">
           <span id="version" class="pill">版本 -</span>
           <span id="count" class="pill pill--muted">0 条链接</span>
+          <span id="saveStatus" class="pill" hidden></span>
         </div>
       </section>
 
@@ -46,6 +47,84 @@
 
       <section id="grid" class="grid" aria-label="Links"></section>
     </main>
+
+    <dialog id="settingsDialog" class="dialog">
+      <form id="settingsForm" method="dialog" class="dialog__panel">
+        <div class="dialog__header">
+          <div class="dialog__title">GitHub 编辑模式</div>
+          <button class="iconBtn" value="cancel" aria-label="关闭" type="submit">✕</button>
+        </div>
+        <div class="dialog__body">
+          <label class="field">
+            <span class="field__label">Personal Access Token</span>
+            <input id="ghToken" class="input" type="password" placeholder="github_pat_..." autocomplete="off" />
+            <div class="hint">需要 contents:write 权限。只存浏览器 localStorage,不发给除 GitHub 外的服务器。</div>
+          </label>
+          <label class="field">
+            <span class="field__label">Owner</span>
+            <input id="ghOwner" class="input" value="jyzgo" />
+          </label>
+          <label class="field">
+            <span class="field__label">Repo</span>
+            <input id="ghRepo" class="input" value="webs" />
+          </label>
+          <label class="field">
+            <span class="field__label">Path</span>
+            <input id="ghPath" class="input" value="startlink/data.json" />
+          </label>
+          <label class="field">
+            <span class="field__label">Branch</span>
+            <input id="ghBranch" class="input" value="main" />
+          </label>
+        </div>
+        <div class="dialog__footer">
+          <button id="ghClear" class="btn btn--danger" type="button">清除 PAT 退出编辑</button>
+          <div class="spacer"></div>
+          <button class="btn" value="cancel" type="submit">取消</button>
+          <button id="ghSave" class="btn btn--primary" value="ok" type="submit">保存</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="editDialog" class="dialog">
+      <form id="editForm" method="dialog" class="dialog__panel">
+        <div class="dialog__header">
+          <div id="editTitle" class="dialog__title">添加链接</div>
+          <button class="iconBtn" value="cancel" aria-label="关闭" type="submit">✕</button>
+        </div>
+        <div class="dialog__body">
+          <label class="field">
+            <span class="field__label">Alias</span>
+            <input id="alias" class="input" required maxlength="80" placeholder="例如:邮箱 / 文档" />
+          </label>
+          <label class="field">
+            <span class="field__label">URL</span>
+            <input id="url" class="input" required placeholder="https://..." />
+          </label>
+          <div class="field">
+            <span class="field__label">颜色(可选)</span>
+            <div class="inlineRow">
+              <label class="miniToggle">
+                <input id="useTitleColor" type="checkbox" />
+                <span>标题色</span>
+              </label>
+              <input id="titleColor" class="colorInput" type="color" value="#ffffff" />
+              <label class="miniToggle">
+                <input id="useTintColor" type="checkbox" />
+                <span>卡片 tint</span>
+              </label>
+              <input id="tintColor" class="colorInput" type="color" value="#7c5cff" />
+            </div>
+          </div>
+        </div>
+        <div class="dialog__footer">
+          <button id="deleteBtn" class="btn btn--danger" type="button" hidden>删除</button>
+          <div class="spacer"></div>
+          <button class="btn" value="cancel" type="submit">取消</button>
+          <button id="saveItem" class="btn btn--primary" value="ok" type="submit">保存</button>
+        </div>
+      </form>
+    </dialog>
 
     <script type="module" src="./app.js"></script>
   </body>
