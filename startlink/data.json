@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778168081389,
+  "lastModified": 1778168110434,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -141,13 +141,6 @@
       "id": "19d8fc84131_100de1e1",
       "alias": "SDK 调用微信 API | 微信小游戏Unity/团结快适配",
       "url": "https://wechat-miniprogram.github.io/minigame-unity-webgl-transform/Design/WX_SDK.html",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
-      "id": "19d8fc84131_c1dab08e",
-      "alias": "看板 - Level",
-      "url": "https://ss-web.aslk2018.com:8993/#/panel/panel/60_533",
       "createdAt": 1776233759025,
       "updatedAt": 1776233759025
     },
