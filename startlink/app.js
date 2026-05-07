@@ -181,14 +181,14 @@ function makeCard(it) {
   const alias = document.createElement("div");
   alias.className = "card__alias";
   alias.textContent = it.alias || "（无标题）";
-  alias.style.color = it.titleColor || avatarColor(url);
+  if (it.titleColor) alias.style.color = it.titleColor;
 
   const urlEl = document.createElement("div");
   urlEl.className = "card__url";
   urlEl.textContent = url;
 
   if (primary) card.style.setProperty("--bg-icon", `url("${primary}")`);
-  card.style.setProperty("--tint", it.tintColor || "transparent");
+  card.style.setProperty("--tint", it.tintColor || avatarColor(url));
 
   meta.appendChild(alias);
   meta.appendChild(urlEl);
