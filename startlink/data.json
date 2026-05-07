@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167877666,
+  "lastModified": 1778167895141,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -34,13 +34,6 @@
       "titleColor": "#665fce"
     },
     {
-      "id": "19d8fc84130_739cd840",
-      "alias": "大地图功能细分表",
-      "url": "https://os3tzyabw2.feishu.cn/wiki/JMo5wscPki74zMkj5I3cE2t7nQg?sheet=24ZUwC",
-      "createdAt": 1776233759024,
-      "updatedAt": 1778166529109
-    },
-    {
       "id": "mojmz7h8_ui2cyci3",
       "alias": "Release打包bamboo",
       "url": "http://bamboonew.ggdev.co/browse/RS-RRAC",
@@ -64,13 +57,6 @@
       "createdAt": 1776233759024,
       "updatedAt": 1778167736942,
       "titleColor": "#9ecdff"
-    },
-    {
-      "id": "19d8fc84130_2fb49f6b",
-      "alias": "战斗bugToDo",
-      "url": "https://os3tzyabw2.feishu.cn/wiki/JMo5wscPki74zMkj5I3cE2t7nQg?sheet=G2Us60",
-      "createdAt": 1776233759024,
-      "updatedAt": 1776233759024
     },
     {
       "id": "19d8fc84130_6a58c3b3",
