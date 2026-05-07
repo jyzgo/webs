@@ -1,5 +1,5 @@
 // 网页代码版本(每次改 webs/startlink/* 时 patch +1, 满 9 进 minor)
-const APP_VERSION = "0.0.7";
+const APP_VERSION = "0.0.8";
 
 // 编辑后等多久(无新改动)才 commit 到 GitHub —— 合并连续编辑减少 commit 数
 const SAVE_DEBOUNCE_MS = 5000;
@@ -444,6 +444,10 @@ function makeCard(it) {
 
   return card;
 }
+
+// picker 一动就视为用户主动启用对应颜色
+els.titleColor.addEventListener("input", () => { els.useTitleColor.checked = true; });
+els.tintColor.addEventListener("input", () => { els.useTintColor.checked = true; });
 
 function openEdit(id) {
   editingId = id ?? null;
