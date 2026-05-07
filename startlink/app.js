@@ -1,5 +1,5 @@
 // 网页代码版本(每次改 webs/startlink/* 时 patch +1, 满 9 进 minor)
-const APP_VERSION = "0.0.5";
+const APP_VERSION = "0.0.6";
 
 // 编辑后等多久(无新改动)才 commit 到 GitHub —— 合并连续编辑减少 commit 数
 const SAVE_DEBOUNCE_MS = 5000;
@@ -453,8 +453,10 @@ function openEdit(id) {
   els.url.value = existing ? existing.url : "";
   els.useTitleColor.checked = !!existing?.titleColor;
   els.titleColor.value = existing?.titleColor || "#ffffff";
+  // 没主动设过 tintColor 时,picker 预填当前可见的 hash 派生色(而不是固定紫色)
   els.useTintColor.checked = !!existing?.tintColor;
-  els.tintColor.value = existing?.tintColor || "#7c5cff";
+  const fallbackTint = existing ? avatarColor(decodeHtmlEntities(existing.url || "")) : "#7c5cff";
+  els.tintColor.value = existing?.tintColor || fallbackTint;
   els.deleteBtn.hidden = !existing;
   els.editDialog.showModal();
 }
