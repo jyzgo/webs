@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167895141,
+  "lastModified": 1778167914869,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -23,7 +23,8 @@
       "alias": "bug列表",
       "url": "https://project.feishu.cn/rgslg/issueView/DBR6NS3Hg?scope=workspaces&node=26127421",
       "createdAt": 1776233759024,
-      "updatedAt": 1776233759024
+      "updatedAt": 1778167909037,
+      "titleColor": "#dd4646"
     },
     {
       "id": "19d8fc84130_ba4f8e7d",
