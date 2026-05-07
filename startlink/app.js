@@ -1,5 +1,5 @@
 // 网页代码版本(每次改 webs/startlink/* 时 patch +1, 满 9 进 minor)
-const APP_VERSION = "0.0.3";
+const APP_VERSION = "0.0.4";
 
 // ============================================================================
 // storage (内联,避免多文件 CDN 缓存不一致)
@@ -77,6 +77,28 @@ function _utf8ToBase64(str) {
   return btoa(unescape(encodeURIComponent(str)));
 }
 
+async function _ghGetSha(apiBase, branch, headers) {
+  // cache buster 让 GitHub read replica 不返回旧 sha
+  const r = await fetch(`${apiBase}?ref=${encodeURIComponent(branch)}&t=${Date.now()}`, {
+    headers, cache: "no-store",
+  });
+  if (r.ok) {
+    const j = await r.json();
+    return { sha: j.sha };
+  }
+  if (r.status === 404) return { sha: null };
+  return { error: `读取失败 ${r.status}: ${(await r.text()).slice(0, 200)}` };
+}
+
+async function _ghPut(apiBase, headers, body) {
+  const r = await fetch(apiBase, {
+    method: "PUT",
+    headers: { ...headers, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  return { status: r.status, ok: r.ok, text: r.ok ? null : await r.text() };
+}
+
 async function saveState(state) {
   state.lastModified = Date.now();
   try { localStorage.setItem(_LS_KEY, JSON.stringify(state)); } catch {}
@@ -91,42 +113,33 @@ async function saveState(state) {
     "X-GitHub-Api-Version": "2022-11-28",
   };
 
-  let sha = null;
-  try {
-    const r = await fetch(`${apiBase}?ref=${encodeURIComponent(cfg.branch)}`, { headers });
-    if (r.ok) {
-      const j = await r.json();
-      sha = j.sha;
-    } else if (r.status !== 404) {
-      const txt = await r.text();
-      return { ok: false, online: true, message: `读取失败 ${r.status}: ${txt.slice(0, 200)}` };
-    }
-  } catch (e) {
-    return { ok: false, online: false, message: `网络错误: ${e.message}` };
-  }
-
   const json = JSON.stringify(state, null, 2);
-  const body = {
-    message: `update startlink (${state.items.length} links)`,
-    content: _utf8ToBase64(json),
-    branch: cfg.branch,
-  };
-  if (sha) body.sha = sha;
+  const content = _utf8ToBase64(json);
 
-  try {
-    const r = await fetch(apiBase, {
-      method: "PUT",
-      headers: { ...headers, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    if (!r.ok) {
-      const txt = await r.text();
-      return { ok: false, online: true, message: `提交失败 ${r.status}: ${txt.slice(0, 200)}` };
+  // 最多 3 次:每次重新拉 sha,409 sleep 后重试
+  let lastError = "未知错误";
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (attempt > 0) await new Promise((r) => setTimeout(r, 1500));
+
+    const g = await _ghGetSha(apiBase, cfg.branch, headers).catch((e) => ({ error: `网络错误: ${e.message}` }));
+    if (g.error) { lastError = g.error; continue; }
+
+    const body = {
+      message: `update startlink (${state.items.length} links)`,
+      content,
+      branch: cfg.branch,
+    };
+    if (g.sha) body.sha = g.sha;
+
+    const p = await _ghPut(apiBase, headers, body).catch((e) => ({ status: 0, ok: false, text: `网络错误: ${e.message}` }));
+    if (p.ok) {
+      return { ok: true, online: true, message: `已 commit (${attempt + 1} 次尝试),Pages 部署 ~30s` };
     }
-    return { ok: true, online: true, message: "已 commit,Pages 部署 ~30s" };
-  } catch (e) {
-    return { ok: false, online: false, message: `网络错误: ${e.message}` };
+    lastError = `${p.status}: ${(p.text || "").slice(0, 200)}`;
+    // 409 = sha 冲突,等下次循环重读 sha 再试。其他错误直接返回。
+    if (p.status !== 409) break;
   }
+  return { ok: false, online: true, message: `提交失败 ${lastError}` };
 }
 
 const els = {
