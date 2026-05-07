@@ -42,6 +42,19 @@ let editingId = null;
 function uid() {
   return `${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
 }
+
+// 与 ToolBox · startlink GUI 用的同一组调色板,按 URL 字符和取模派生默认 alias 颜色
+const AVATAR_COLORS = [
+  "#e74c3c", "#e67e22", "#f39c12", "#27ae60", "#1abc9c",
+  "#2980b9", "#8e44ad", "#e91e63", "#00acc1", "#ff7043",
+];
+function avatarColor(url) {
+  const s = url || "";
+  let sum = 0;
+  for (let i = 0; i < s.length; i++) sum += s.charCodeAt(i);
+  return AVATAR_COLORS[sum % AVATAR_COLORS.length];
+}
+
 function getOriginFavicon(url) {
   try { return `${new URL(url).origin}/favicon.ico`; } catch { return ""; }
 }
@@ -168,7 +181,7 @@ function makeCard(it) {
   const alias = document.createElement("div");
   alias.className = "card__alias";
   alias.textContent = it.alias || "（无标题）";
-  if (it.titleColor) alias.style.color = it.titleColor;
+  alias.style.color = it.titleColor || avatarColor(url);
 
   const urlEl = document.createElement("div");
   urlEl.className = "card__url";
