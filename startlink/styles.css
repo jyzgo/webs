@@ -141,8 +141,8 @@ body {
   position: relative;
   border-radius: 16px;
   border: 1px solid var(--border);
-  background: var(--panel);
-  box-shadow: var(--shadow);
+  background: color-mix(in srgb, var(--tint, transparent) 18%, var(--panel));
+  box-shadow: var(--shadow), inset 3px 0 0 var(--tint, transparent);
   overflow: hidden;
   min-height: 92px;
 }

@@ -1,7 +1,7 @@
 import { loadState, saveState, getGhConfig, setGhConfig } from "./storage.js";
 
 // 网页代码版本(每次改 webs/startlink/* 时 patch +1, 满 9 进 minor)
-const APP_VERSION = "0.0.1";
+const APP_VERSION = "0.0.2";
 
 const els = {
   cols: document.getElementById("cols"),
