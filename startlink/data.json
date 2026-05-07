@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167725530,
+  "lastModified": 1778167734169,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -53,7 +53,8 @@
       "alias": "RS包下载",
       "url": "https://rsalphadownload.changyoufun.com/android/",
       "createdAt": 1776233759024,
-      "updatedAt": 1776233759024
+      "updatedAt": 1778167729162,
+      "titleColor": "#8084ff"
     },
     {
       "id": "19d8fc84130_3f1d1bfc",
