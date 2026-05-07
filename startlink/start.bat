@@ -1,0 +1,6 @@
+@echo off
+echo Changing directory to D:\Documents\StartLink ...
+cd /d "D:\Documents\StartLink"
+echo Starting StartLink server at http://localhost:5173 ...
+python server.py
+pause

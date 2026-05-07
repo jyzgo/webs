@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StartLink</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="title">StartLink</div>
+      <div class="subtitle">读取并展示全部书签链接</div>
+      <div class="controls">
+        <input id="q" class="input" placeholder="搜索书签标题或网址…" autocomplete="off" />
+        <button id="refresh" class="btn" type="button">刷新</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <div id="status" class="status">加载中…</div>
+      <ul id="list" class="list" aria-label="Bookmarks"></ul>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
+
+
+
+
+

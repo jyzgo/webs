@@ -1,0 +1,4 @@
+# 各站点本地数据(不进 GitHub Pages,避免泄漏私人书签等)
+*/startlink.links.json
+*/server.log
+**/*.tmp

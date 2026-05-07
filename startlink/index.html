@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StartLink</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand__title">StartLink</div>
+        <div class="brand__subtitle">
+          <span id="lastUpdate">数据加载中…</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label class="field">
+          <span class="field__label">搜索</span>
+          <input id="search" class="input input--sm" type="search" placeholder="alias / url" autofocus />
+        </label>
+        <label class="field">
+          <span class="field__label">Cols</span>
+          <input id="cols" class="input input--sm" type="number" min="1" max="12" step="1" />
+        </label>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="statusCard">
+        <div class="statusCard__left">
+          <div class="statusCard__title">只读视图</div>
+          <div class="statusCard__desc">数据由 ToolBox · startlink 工具维护,通过 git push 同步</div>
+        </div>
+        <div class="statusCard__right">
+          <span id="version" class="pill">版本 -</span>
+          <span id="count" class="pill pill--muted">0 条链接</span>
+        </div>
+      </section>
+
+      <section id="empty" class="emptyState" hidden>
+        <div class="emptyState__title">还没有链接</div>
+        <div class="emptyState__desc">data.json 为空。</div>
+      </section>
+
+      <section id="grid" class="grid" aria-label="Links"></section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

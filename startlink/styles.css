@@ -1,0 +1,444 @@
+:root {
+  --bg: #070a16;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel2: rgba(255, 255, 255, 0.08);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.68);
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
+  --accent: #7c5cff;
+  --danger: #ff4d6d;
+  --ok: #2ee9a5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: radial-gradient(1100px 700px at 10% -10%, rgba(124, 92, 255, 0.38), transparent 60%),
+    radial-gradient(900px 520px at 110% 0%, rgba(92, 140, 255, 0.22), transparent 55%),
+    var(--bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+}
+
+.brand__title {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.brand__subtitle {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.divider {
+  width: 1px;
+  height: 26px;
+  background: var(--border);
+}
+
+.main {
+  max-width: none;
+  margin: 0;
+  padding: 16px 16px 40px;
+}
+
+.statusCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.statusCard__title {
+  font-weight: 700;
+}
+
+.statusCard__desc {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.statusCard__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.pill {
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.88);
+  white-space: nowrap;
+}
+
+.pill--muted {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.grid {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
+}
+
+@media (max-width: 920px) {
+  .grid {
+    grid-template-columns: repeat(min(3, var(--cols, 3)), minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(min(2, var(--cols, 2)), minmax(0, 1fr));
+  }
+}
+
+.card {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  min-height: 92px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-icon, none);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 96px 96px;
+  opacity: 0.14;
+  filter: saturate(1.15) contrast(1.05);
+  transform: rotate(-8deg) scale(1.02);
+  pointer-events: none;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(900px 320px at 10% 0%, color-mix(in srgb, var(--tint, transparent) 40%, transparent), transparent
+        65%),
+    radial-gradient(700px 260px at 90% 110%, color-mix(in srgb, var(--tint, transparent) 35%, transparent), transparent 60%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.card__top {
+  padding: 12px 12px 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.card__row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.favicon {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  flex: 0 0 auto;
+  object-fit: cover;
+  margin-top: 2px;
+}
+
+.card__meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.card__alias {
+  font-weight: 750;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card__url {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card__actions {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  position: relative;
+  z-index: 1;
+}
+
+.card.drag-over {
+  outline: 2px solid rgba(124, 92, 255, 0.65);
+  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.18), var(--shadow);
+}
+
+.card.is-dragging {
+  opacity: 0.55;
+  transform: scale(0.995);
+}
+
+.btn--handle {
+  cursor: grab;
+}
+
+.btn--handle:active {
+  cursor: grabbing;
+}
+
+.btn {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 9px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  border-color: rgba(124, 92, 255, 0.6);
+  background: rgba(124, 92, 255, 0.22);
+}
+
+.btn--danger {
+  border-color: rgba(255, 77, 109, 0.6);
+  background: rgba(255, 77, 109, 0.18);
+}
+
+.btn--ghost {
+  background: transparent;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field__label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.input {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  outline: none;
+}
+
+.input--sm {
+  width: 90px;
+  padding: 9px 10px;
+  border-radius: 12px;
+}
+
+.input:focus {
+  border-color: rgba(124, 92, 255, 0.7);
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.2);
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.emptyState {
+  margin-top: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 26px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  text-align: center;
+}
+
+.emptyState__title {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.emptyState__desc {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.dialog__panel {
+  width: min(560px, calc(100vw - 24px));
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(12, 16, 35, 0.92);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dialog__title {
+  font-weight: 800;
+}
+
+.dialog__body {
+  padding: 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dialog__footer {
+  padding: 12px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.iconBtn {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.radioRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.inlineRow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.miniToggle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.colorInput {
+  width: 56px;
+  height: 38px;
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.radio {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 13px;
+}
+
+.radio input {
+  accent-color: var(--accent);
+}
+
+
