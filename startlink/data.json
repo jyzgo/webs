@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167755776,
+  "lastModified": 1778167787193,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -80,20 +80,6 @@
       "updatedAt": 1776233759024
     },
     {
-      "id": "19d8fc84130_75cddd5c",
-      "alias": "战队绩效",
-      "url": "https://os3tzyabw2.feishu.cn/sheets/F7aFsPx40hXVzAtDk1kcFyBjnhd?sheet=9ce0a7",
-      "createdAt": 1776233759024,
-      "updatedAt": 1776233759024
-    },
-    {
-      "id": "19d8fc84130_36fb4c4b",
-      "alias": "Cursor报销",
-      "url": "https://os3tzyabw2.feishu.cn/drive/folder/GhhWfJQATl0QyOdIIrsctGjSnv0",
-      "createdAt": 1776233759024,
-      "updatedAt": 1776233759024
-    },
-    {
       "id": "19d8fc84130_8525c4bd",
       "alias": "Gemini",
       "url": "https://gemini.google.com/u/1/app?pageId=none",
@@ -105,7 +91,8 @@
       "alias": "大地图进度表",
       "url": "https://os3tzyabw2.feishu.cn/wiki/JMo5wscPki74zMkj5I3cE2t7nQg",
       "createdAt": 1776233759024,
-      "updatedAt": 1776233759024
+      "updatedAt": 1778167772148,
+      "titleColor": "#47ff8e"
     },
     {
       "id": "19d8fc84130_2962ad7f",
