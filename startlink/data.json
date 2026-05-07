@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167704675,
+  "lastModified": 1778167716056,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -44,8 +44,8 @@
       "alias": "Release打包bamboo",
       "url": "http://bamboonew.ggdev.co/browse/RS-RRAC",
       "createdAt": 1777441837724,
-      "updatedAt": 1778167699669,
-      "titleColor": "#5c4fbf",
+      "updatedAt": 1778167711050,
+      "titleColor": "#8575ff",
       "tintColor": "#dcd0d0"
     },
     {
