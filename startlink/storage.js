@@ -29,7 +29,8 @@ function normalize(s) {
 
 export async function loadState() {
   try {
-    const res = await fetch(DATA, { cache: "no-store" });
+    // cache buster 绕过 GitHub Pages CDN 缓存
+    const res = await fetch(`${DATA}?t=${Date.now()}`, { cache: "no-store" });
     if (res.ok) {
       const raw = await res.json();
       const n = normalize(raw);
