@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778168379378,
+  "lastModified": 1778168561632,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -204,13 +204,6 @@
       "id": "19d8fc84131_1e79a0fa",
       "alias": "在线websocket测试-在线工具-postjson",
       "url": "http://coolaf.com/tool/chattest",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
-      "id": "19d8fc84131_d6473a79",
-      "alias": "PCGame",
-      "url": "https://www.gamer520.com/pcgame",
       "createdAt": 1776233759025,
       "updatedAt": 1776233759025
     },
