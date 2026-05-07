@@ -1,5 +1,8 @@
 // 网页代码版本(每次改 webs/startlink/* 时 patch +1, 满 9 进 minor)
-const APP_VERSION = "0.0.4";
+const APP_VERSION = "0.0.5";
+
+// 编辑后等多久(无新改动)才 commit 到 GitHub —— 合并连续编辑减少 commit 数
+const SAVE_DEBOUNCE_MS = 5000;
 
 // ============================================================================
 // storage (内联,避免多文件 CDN 缓存不一致)
@@ -218,13 +221,66 @@ function applyCols(n) {
 }
 
 let _statusTimer = null;
-function showSaveStatus(text, err = false) {
+function showSaveStatus(text, err = false, sticky = false) {
   els.saveStatus.textContent = text;
   els.saveStatus.hidden = false;
   els.saveStatus.style.color = err ? "#ff8a8a" : "";
-  if (_statusTimer) clearTimeout(_statusTimer);
-  _statusTimer = setTimeout(() => { els.saveStatus.hidden = true; }, err ? 8000 : 4000);
+  if (_statusTimer) { clearTimeout(_statusTimer); _statusTimer = null; }
+  if (!sticky) _statusTimer = setTimeout(() => { els.saveStatus.hidden = true; }, err ? 8000 : 4000);
 }
+
+// ---- debounce 队列(连续编辑合并成一次 commit) ----
+let _saveTimer = null;
+let _saveCountdown = null;
+let _pendingSave = false;
+let _pendingChangeCount = 0;
+
+function scheduleSave() {
+  _pendingSave = true;
+  _pendingChangeCount += 1;
+  if (_saveTimer) clearTimeout(_saveTimer);
+  if (_saveCountdown) clearInterval(_saveCountdown);
+
+  let remain = Math.ceil(SAVE_DEBOUNCE_MS / 1000);
+  showSaveStatus(`未保存 (${_pendingChangeCount}) ${remain}s 后提交`, false, true);
+  _saveCountdown = setInterval(() => {
+    remain -= 1;
+    if (remain > 0) {
+      showSaveStatus(`未保存 (${_pendingChangeCount}) ${remain}s 后提交`, false, true);
+    } else {
+      clearInterval(_saveCountdown);
+      _saveCountdown = null;
+    }
+  }, 1000);
+
+  _saveTimer = setTimeout(() => {
+    _saveTimer = null;
+    if (_saveCountdown) { clearInterval(_saveCountdown); _saveCountdown = null; }
+    commitNow();
+  }, SAVE_DEBOUNCE_MS);
+}
+
+async function commitNow() {
+  if (_saveTimer) { clearTimeout(_saveTimer); _saveTimer = null; }
+  if (_saveCountdown) { clearInterval(_saveCountdown); _saveCountdown = null; }
+  const n = _pendingChangeCount;
+  _pendingChangeCount = 0;
+  showSaveStatus(`提交中… (合并 ${n} 处改动)`, false, true);
+  const r = await saveState(state);
+  _pendingSave = false;
+  showSaveStatus(r.message, !r.ok);
+  if (r.ok) {
+    els.lastUpdate.textContent = `数据更新于 ${fmtDate(state.lastModified)}`;
+  }
+}
+
+window.addEventListener("beforeunload", (e) => {
+  if (_pendingSave) {
+    e.preventDefault();
+    e.returnValue = "有未保存的改动,确定离开?";
+    return e.returnValue;
+  }
+});
 
 function refreshMode() {
   editMode = !!getGhConfig();
@@ -288,7 +344,7 @@ function makeCard(it) {
       const insertAt = from < to ? to - 1 : to;
       state.items.splice(insertAt, 0, moved);
       render();
-      await commit();
+      scheduleSave();
     });
   }
 
@@ -377,7 +433,7 @@ function makeCard(it) {
       if (!confirm(`删除"${it.alias}"?`)) return;
       state.items = state.items.filter((x) => x.id !== it.id);
       render();
-      await commit();
+      scheduleSave();
     });
 
     actions.appendChild(dragBtn);
@@ -420,7 +476,7 @@ els.editForm.addEventListener("submit", async (e) => {
     state.items.push({ id: uid(), createdAt: now, updatedAt: now, ...data });
   }
   render();
-  await commit();
+  scheduleSave();
 });
 
 els.deleteBtn.addEventListener("click", async () => {
@@ -429,16 +485,8 @@ els.deleteBtn.addEventListener("click", async () => {
   els.editDialog.close();
   state.items = state.items.filter((x) => x.id !== editingId);
   render();
-  await commit();
+  scheduleSave();
 });
-
-async function commit() {
-  const r = await saveState(state);
-  showSaveStatus(r.message, !r.ok);
-  if (r.ok) {
-    els.lastUpdate.textContent = `数据更新于 ${fmtDate(state.lastModified)}`;
-  }
-}
 
 els.settingsBtn.addEventListener("click", () => {
   const cfg = getGhConfig();
