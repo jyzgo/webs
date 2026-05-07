@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167984246,
+  "lastModified": 1778168056870,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -187,13 +187,6 @@
       "updatedAt": 1776233759025
     },
     {
-      "id": "19d8fc84131_c253b98a",
-      "alias": "连连看 | Trello",
-      "url": "https://trello.com/b/ACvu3Dvr/%E8%BF%9E%E8%BF%9E%E7%9C%8B",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
       "id": "19d8fc84131_e8d4c3fd",
       "alias": "25:00 Focus - Tomodoro",
       "url": "https://lazy-guy.github.io/tomodoro/index.html",
@@ -253,20 +246,6 @@
       "id": "19d8fc84131_c4093d5a",
       "alias": "Superset",
       "url": "http://34.126.117.6:8088/superset/welcome/",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
-      "id": "19d8fc84131_6d4a420f",
-      "alias": "admob设置app-ads.txt（亲测有效）-CSDN博客",
-      "url": "https://blog.csdn.net/szdenny/article/details/132088809",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
-      "id": "19d8fc84131_8e4cd4de",
-      "alias": "ultiverse-io/game-widget-sdk at feat/project-bac",
-      "url": "https://github.com/ultiverse-io/game-widget-sdk/tree/feat/project-bac",
       "createdAt": 1776233759025,
       "updatedAt": 1776233759025
     },
