@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167960158,
+  "lastModified": 1778167975872,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -110,23 +110,9 @@
       "updatedAt": 1776233759025
     },
     {
-      "id": "19d8fc84131_2ac7dde2",
-      "alias": "Gmail",
-      "url": "https://accounts.google.com/b/0/AddMailService",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
       "id": "19d8fc84131_3791d2fd",
       "alias": "RS项目需求管理",
       "url": "https://project.feishu.cn/rgslg/story/homepage",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
-      "id": "19d8fc84131_80c10207",
-      "alias": "AI开发提速案例统计表 - 飞书云文档",
-      "url": "https://os3tzyabw2.feishu.cn/wiki/ADFew4HgiipsRokXtskcmwVenAg?sheet=mN3zPQ",
       "createdAt": 1776233759025,
       "updatedAt": 1776233759025
     },
