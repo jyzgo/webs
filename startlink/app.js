@@ -1,5 +1,5 @@
 // 网页代码版本(每次改 webs/startlink/* 时 patch +1, 满 9 进 minor)
-const APP_VERSION = "0.0.6";
+const APP_VERSION = "0.0.7";
 
 // 编辑后等多久(无新改动)才 commit 到 GitHub —— 合并连续编辑减少 commit 数
 const SAVE_DEBOUNCE_MS = 5000;
@@ -462,19 +462,28 @@ function openEdit(id) {
 }
 
 els.editForm.addEventListener("submit", async (e) => {
-  if (els.editForm.returnValue === "cancel") return;
+  // 用 e.submitter 判断哪个按钮触发(form.returnValue 在 submit handler 里 timing 不可靠)
+  if (e.submitter && e.submitter.value === "cancel") return;
   if (!els.alias.value.trim() || !els.url.value.trim()) return;
-  const now = Date.now();
   const data = {
     alias: els.alias.value.trim(),
     url: els.url.value.trim(),
     titleColor: els.useTitleColor.checked ? els.titleColor.value : undefined,
     tintColor: els.useTintColor.checked ? els.tintColor.value : undefined,
   };
+  // 与现有 item 对比, 完全相等就跳过(避免空保存触发 commit)
   if (editingId) {
     const idx = state.items.findIndex((x) => x.id === editingId);
-    if (idx >= 0) state.items[idx] = { ...state.items[idx], ...data, updatedAt: now };
+    if (idx >= 0) {
+      const cur = state.items[idx];
+      const same = cur.alias === data.alias && cur.url === data.url
+        && (cur.titleColor || undefined) === data.titleColor
+        && (cur.tintColor || undefined) === data.tintColor;
+      if (same) return;
+      state.items[idx] = { ...cur, ...data, updatedAt: Date.now() };
+    }
   } else {
+    const now = Date.now();
     state.items.push({ id: uid(), createdAt: now, updatedAt: now, ...data });
   }
   render();
@@ -506,8 +515,8 @@ els.settingsBtn.addEventListener("click", () => {
   els.settingsDialog.showModal();
 });
 
-els.settingsForm.addEventListener("submit", () => {
-  if (els.settingsForm.returnValue === "cancel") return;
+els.settingsForm.addEventListener("submit", (e) => {
+  if (e.submitter && e.submitter.value === "cancel") return;
   const cur = getGhConfig();
   const token = els.ghToken.value.trim() || cur?.token;
   if (!token) return;
