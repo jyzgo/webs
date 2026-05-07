@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778168172925,
+  "lastModified": 1778168196883,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -127,13 +127,6 @@
       "id": "19d8fc84131_bcce7e8e",
       "alias": "微信服务商平台",
       "url": "https://partner.weixin.qq.com/service-provider/overview",
-      "createdAt": 1776233759025,
-      "updatedAt": 1776233759025
-    },
-    {
-      "id": "19d8fc84131_67abce95",
-      "alias": "版本管理 - 抖音开放平台",
-      "url": "https://developer.open-douyin.com/game/tteb039dbe7437ab0e07/indexpage",
       "createdAt": 1776233759025,
       "updatedAt": 1776233759025
     },
