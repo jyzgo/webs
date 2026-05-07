@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167914869,
+  "lastModified": 1778167960158,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -85,13 +85,6 @@
       "id": "19d8fc84130_2962ad7f",
       "alias": "千问",
       "url": "https://www.tongyi.com/?st=null&bizPassParams=%26x-platform%3DexternalH5",
-      "createdAt": 1776233759024,
-      "updatedAt": 1776233759024
-    },
-    {
-      "id": "19d8fc84130_f715148a",
-      "alias": "Kimi",
-      "url": "https://www.kimi.com/",
       "createdAt": 1776233759024,
       "updatedAt": 1776233759024
     },
