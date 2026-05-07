@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778167716056,
+  "lastModified": 1778167725530,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -60,7 +60,8 @@
       "alias": "Banboo打包",
       "url": "http://bamboonew.ggdev.co/browse/RS-AAHYT",
       "createdAt": 1776233759024,
-      "updatedAt": 1778166170309
+      "updatedAt": 1778167720524,
+      "titleColor": "#a3fdff"
     },
     {
       "id": "19d8fc84130_2fb49f6b",
