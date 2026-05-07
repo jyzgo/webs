@@ -1,5 +1,8 @@
 import { loadState, saveState, getGhConfig, setGhConfig } from "./storage.js";
 
+// 网页代码版本(每次改 webs/startlink/* 时 patch +1, 满 9 进 minor)
+const APP_VERSION = "0.0.1";
+
 const els = {
   cols: document.getElementById("cols"),
   search: document.getElementById("search"),
@@ -344,7 +347,7 @@ async function init() {
   const loaded = await loadState();
   if (loaded) state = loaded;
 
-  els.version.textContent = `版本 ${state.version}`;
+  els.version.textContent = `v${APP_VERSION}`;
   els.lastUpdate.textContent = `数据更新于 ${fmtDate(state.lastModified)}`;
 
   const storedCols = Number(localStorage.getItem("startlink:cols"));
