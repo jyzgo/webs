@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1778985994905,
+  "lastModified": 1778986022537,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -234,6 +234,14 @@
       "url": "https://flutter.dev/docs/development/ui/layout",
       "createdAt": 1776233759025,
       "updatedAt": 1776233759025
+    },
+    {
+      "id": "mp96cc8t_ubyaf5cr",
+      "createdAt": 1778986017533,
+      "updatedAt": 1778986017533,
+      "alias": "JingYouClaude",
+      "url": "http://100.83.179.15:8765",
+      "titleColor": "#85d6d1"
     }
   ]
 }
