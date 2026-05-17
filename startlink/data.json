@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1779001986244,
+  "lastModified": 1779002008248,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -239,9 +239,9 @@
     {
       "id": "mp96cc8t_ubyaf5cr",
       "alias": "JingYouClaude",
-      "url": "100.126.87.74:8765",
+      "url": "http://100.126.87.74:8765",
       "createdAt": 1778986017533,
-      "updatedAt": 1779001980299,
+      "updatedAt": 1779002002918,
       "titleColor": "#85d6d1",
       "tintColor": "#082d9b"
     },
