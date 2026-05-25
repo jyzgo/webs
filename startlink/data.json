@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1779354615527,
+  "lastModified": 1779697960435,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -64,13 +64,6 @@
       "id": "19d8fc84130_6a58c3b3",
       "alias": "Json美化",
       "url": "https://jsonformatter.org/",
-      "createdAt": 1776233759024,
-      "updatedAt": 1776233759024
-    },
-    {
-      "id": "19d8fc84130_8525c4bd",
-      "alias": "Gemini",
-      "url": "https://gemini.google.com/u/1/app?pageId=none",
       "createdAt": 1776233759024,
       "updatedAt": 1776233759024
     },
