@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cols": 8,
-  "lastModified": 1779697960435,
+  "lastModified": 1779697991666,
   "items": [
     {
       "id": "movac84i_pbr65c1e",
@@ -64,6 +64,13 @@
       "id": "19d8fc84130_6a58c3b3",
       "alias": "Json美化",
       "url": "https://jsonformatter.org/",
+      "createdAt": 1776233759024,
+      "updatedAt": 1776233759024
+    },
+    {
+      "id": "19d8fc84130_8525c4bd",
+      "alias": "Gemini",
+      "url": "https://gemini.google.com/u/1/app?pageId=none",
       "createdAt": 1776233759024,
       "updatedAt": 1776233759024
     },
@@ -241,9 +248,9 @@
     {
       "id": "mp96dh1y_dk4fk9xm",
       "alias": "2fClaude",
-      "url": "http://100.119.221.31:8765",
+      "url": "http://100.119.221.31:8091/s/2fPC/",
       "createdAt": 1778986070422,
-      "updatedAt": 1778986070422,
+      "updatedAt": 1779697986661,
       "titleColor": "#61a869",
       "tintColor": "#7c5cff"
     },
